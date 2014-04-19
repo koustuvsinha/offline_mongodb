@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+</head>
+<body>
+<script type="text/javascript" src="lib/require.js"></script>
+<script type="text/javascript" src="lib/Objectid.js"></script>
+<script type="text/javascript" src="lib/queue.js"></script>
+<script type="text/javascript">
+    var local = require('./lib/localDB');
+
+    function init() {
+        local.init("person");
+    }
+    function addName(name,age,sex) {
+        local.addData({"name" : name, "age" : age, "sex" : sex});
+    }
+    function getAllData() {
+        console.log(local.loadData());
+    }
+
+</script>
+</body>
+</html>
