@@ -1,25 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Test</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline MongoDB Sync</title>
+    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
 </head>
 <body>
+<div class="container">
+
+
+    <div class="row">
+        <h1>Offline MongoDB Sync</h1>
+        <hr/>
+        <p>Show Records in : <select id="selecteddb">
+            <option value="person">Person</option>
+            <option value="synctest1">synctest1</option>
+            <option value="college">college</option>
+
+        </select>
+            <button type="button" class="btn btn-primary" onclick="showRecords()">Show</button></p>
+        <div class="col-md-7">
+        <button type="button" class="btn btn-primary" onclick="sync()">Start Sync</button>&NonBreakingSpace;
+        <button type="button" class="btn btn-default" onclick="stopSync()">Stop Sync</button>&NonBreakingSpace;
+        </div><div class="col-md-5"><p id="result" class="text-info"></p></div>
+    </div>
+    <div class="row">
+        <p id="table"></p>
+    </div>
+</div>
 <script type="text/javascript" src="lib/require.js"></script>
 <script type="text/javascript" src="lib/Objectid.js"></script>
-<script type="text/javascript" src="lib/queue.js"></script>
-<script type="text/javascript">
-    var local = require('./lib/localDB');
+<script type="text/javascript" src="lib/main.js"></script>
+<script type="text/javascript" src="lib/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
 
-    function init() {
-        local.init("person");
-    }
-    function addName(name,age,sex) {
-        local.addData({"name" : name, "age" : age, "sex" : sex});
-    }
-    function getAllData() {
-        console.log(local.loadData());
-    }
-
-</script>
 </body>
 </html>
