@@ -12,7 +12,13 @@
 
 
     <div class="row">
+        <div class="col-md-10">
         <h1>Offline MongoDB Sync</h1>
+        </div><div class="col-md-2" id="isonline">
+
+        </div>
+    </div>
+    <div class="row">
         <hr/>
         <p>Show Records in : <select id="selecteddb">
             <option value="person">Person</option>
@@ -20,20 +26,39 @@
             <option value="college">college</option>
 
         </select>
-            <button type="button" class="btn btn-primary" onclick="showRecords()">Show</button></p>
+            <button type="button" class="btn btn-primary" onclick="showRecords(null)">Show</button></p>
         <div class="col-md-7">
-        <button type="button" class="btn btn-primary" onclick="sync()">Start Sync</button>&NonBreakingSpace;
-        <button type="button" class="btn btn-default" onclick="stopSync()">Stop Sync</button>&NonBreakingSpace;
+        <button type="button" id="startButton" class="btn btn-primary" onclick="sync()">Start Sync</button>&nbsp;
+        <button type="button" id="stopButton" class="btn btn-default" onclick="stopSync()">Stop Sync</button>&nbsp;
         </div><div class="col-md-5"><p id="result" class="text-info"></p></div>
     </div>
     <div class="row">
         <p id="table"></p>
     </div>
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel"></h4>
+            </div>
+            <div class="modal-body" id="myModalBody">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript" src="lib/require.js"></script>
 <script type="text/javascript" src="lib/Objectid.js"></script>
-<script type="text/javascript" src="lib/main.js"></script>
 <script type="text/javascript" src="lib/jquery.js"></script>
+<script type="text/javascript" src="lib/main.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
 
 </body>
